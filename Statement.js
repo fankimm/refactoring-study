@@ -40,5 +40,5 @@ function usd(aNumber) {
     minimumFractionDigits: 2,
   }).format(aNumber / 100);
 }
-
+console.log("hello world");
 console.log(Statement(invoices[0], plays));

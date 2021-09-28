@@ -5,9 +5,6 @@ export default function createStatementData(invoice, plays) {
   result.totalAmount = totalAmount(result);
   result.totalVolumeCredits = totalVolumeCredits(result);
   return result;
-  function playFor(aPerformance) {
-    return plays[aPerformance.playID];
-  }
 
   function enrichPerformance(aPerformance) {
     const result = Object.assign({}, aPerformance);
@@ -15,6 +12,10 @@ export default function createStatementData(invoice, plays) {
     result.amount = amountFor(result);
     result.volumeCredits = volumeCreditsFor(result);
     return result;
+  }
+
+  function playFor(aPerformance) {
+    return plays[aPerformance.playID];
   }
 
   function totalAmount(data) {
