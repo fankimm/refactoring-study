@@ -1,15 +1,6 @@
-// import createStatementData = require("./createStatementData.js");
-
-// import { readFile } from "fs/promise";
 import createStatementData from "./createStatementData.js";
 import invoices from "./invoices.json";
 import plays from "./plays.json";
-// const invoices = JSON.parse(
-//   await readFile(new URL("./invoices.json", import.meta.url))
-// );
-// const plays = JSON.parse(
-//   await readFile(new URL("./plays.json", import.meta.url))
-// );
 function Statement(invoice, plays) {
   return renderPlainText(createStatementData(invoice, plays));
 }
@@ -17,7 +8,7 @@ function Statement(invoice, plays) {
 function renderPlainText(data, plays) {
   let result = `청구 내역 (고객명: ${data.customer})\n`;
   for (let perf of data.performances) {
-    result += `${perf.play.name}: ${perf.amountt} (${perf.audience}석\n)`;
+    result += `${perf.play.name}: ${perf.amount} (${perf.audience}석)\n`;
   }
   result += `총액 ${usd(data.totalAmount)}\n`;
   result += `적립 포인트 : ${data.totalVolumeCredits}점\n`;
