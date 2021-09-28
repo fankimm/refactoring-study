@@ -1,0 +1,9 @@
+{
+  "name": "refactoring",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/fankimm/refactoring-study.git",
+  "author": "fankimm <crakim7@naver.com>",
+  "license": "MIT",
+  "type":"module"
+}
