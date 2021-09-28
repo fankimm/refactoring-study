@@ -27,6 +27,7 @@ export default function createStatementData(invoice, plays) {
   }
 
   function amountFor(aPerformance) {
+    // eslint-disable-next-line no-shadow
     let result = 0;
     switch (aPerformance.play.type) {
       case "tragedy":
