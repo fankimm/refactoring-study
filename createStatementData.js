@@ -1,3 +1,9 @@
+class PerformaceCalculator {
+  constructor(aPerformance, aPlay) {
+    this.performance = aPerformance;
+    this.play = aPlay;
+  }
+}
 export default function createStatementData(invoice, plays) {
   const result = {};
   result.customer = invoice.customer;
@@ -7,6 +13,10 @@ export default function createStatementData(invoice, plays) {
   return result;
 
   function enrichPerformance(aPerformance) {
+    const calculator = new PerformaceCalculator(
+      aPerformance,
+      playFor(aPerformance)
+    );
     const result = Object.assign({}, aPerformance);
     result.play = playFor(result);
     result.amount = amountFor(result);
@@ -27,7 +37,6 @@ export default function createStatementData(invoice, plays) {
   }
 
   function amountFor(aPerformance) {
-    // eslint-disable-next-line no-shadow
     let result = 0;
     switch (aPerformance.play.type) {
       case "tragedy":
